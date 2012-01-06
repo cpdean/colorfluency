@@ -1,0 +1,51 @@
+
+body
+{
+  background:#000;
+}
+
+div#twoface
+{
+  background:#fff;
+  width:50%;
+  height:100%;
+  position:absolute;
+  top:0px;
+  right:0px;
+  z-index:-1;
+}
+
+#field
+{
+  background:#888;
+  width:600px;
+  height:350px;
+  margin:0px auto;
+}
+
+#player
+{
+  border:1px solid red;
+  margin:100px auto;
+  width:200px;
+}
+
+
+#player input
+{
+  box-sizing:border-box;
+  width:100%;
+  font-size:30px;
+  padding:13px;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+#help
+{
+  color:#fff;
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  font-size:100px;
+}
