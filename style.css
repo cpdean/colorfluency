@@ -15,7 +15,7 @@ div#twoface
   z-index:-1;
 }
 
-#field
+#game-view
 {
   background:#888;
   width:600px;
@@ -38,6 +38,7 @@ div#twoface
   padding:13px;
   text-transform:uppercase;
   text-align:center;
+  border:5px solid orange;
 }
 
 #help
