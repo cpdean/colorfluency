@@ -19,6 +19,7 @@
 			    if(e.keyCode == 13
 			      && message != ""){
 			      cf.log(message);
+			      $(this).val("");
 			    }
 			  });
 			});
