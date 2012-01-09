@@ -25,6 +25,7 @@
 			      });
 
 			    },
+
     log : function(message){
 	    $("#logbox").stop();
 	    var log_item = "<li>"+message+"</li>";
