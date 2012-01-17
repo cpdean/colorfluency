@@ -27,6 +27,7 @@
 			    },
     parseToHexColor : function(input){
 			var convertedForLength = (function(input){
+			  // translate shorthand to a full hex number
 			  var in_length = input.length;
 			  var out = "";
 			  switch (in_length){
@@ -43,12 +44,34 @@
 			      out = input;
 			      break;
 			    default:
-			      out = "sorry, input = " + in_length;
+			      // till i come up with a more graceful strategy
+			      out = "888888";  //default to grey
 			  }
 			  return out;
 			})(input);
 
-			return convertedForLength;
+			convertedForLength = convertedForLength.toLowerCase();
+
+			var isValidHex = function(input){
+			  var validHexiDecimals = "0123456789abcdef";
+			  for(var c in input){
+			    var valid = validHexiDecimals.indexOf(input[c]);
+			    if(valid == -1){
+			      return false;
+			    }
+			  }
+			  return true;
+			};
+			  
+			// return hex if valid
+			if (isValidHex(convertedForLength)){
+			  return convertedForLength.toUpperCase();
+			}
+			else{
+			  return "FF0000"; // bad hex
+			}
+
+
 
 		      },
 
