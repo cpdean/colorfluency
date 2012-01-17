@@ -77,6 +77,7 @@
 
     log : function(message){
 	    var hex_color = cf.parseToHexColor(message);
+	    $("#game-view").css("background","#"+hex_color);
 	    message = hex_color;
 	    $("#logbox").stop();
 	    var log_item = "<li>"+message+"</li>";
