@@ -15,16 +15,52 @@
 				// bind for player input
 				$("#player input").keypress(function(e){
 				  // hitting enter submits the attempt
-				  var message = $(this).val();
+				  var hex_color = $(this).val();
 				  if(e.keyCode == 13
-				    && message != ""){
-				    cf.log(message);
+				    && hex_color != ""){
+				    hex_color = cf.parseToHexColor(hex_color);
+				    cf.log(hex_color);
 				    $(this).val("");
+				    $("#game-view").css("background","#"+hex_color);
 				  }
 				});
 			      });
-
 			    },
+    GAME_MODE_SIMPLE_MONO : function(){
+			      // setup event handlers
+			      $(document).ready(function(){
+				// start typing from anywhere
+				$(document).keydown(function(e){
+				  $("#player input").focus();
+				});
+
+				// bind for player input
+				$("#player input").keypress(function(e){
+				  // hitting enter submits the attempt
+				  var hex_color = $(this).val();
+				  if(e.keyCode == 13
+				    && hex_color != ""){
+				    hex_color = cf.parseToHexColor(hex_color);
+				    cf.log(hex_color);
+				    $(this).val("");
+				    $("#game-view").css("background","#"+hex_color);
+				  }
+				});
+			      });
+			    },
+    score : function(target,user){
+	      //stub
+	      return 1; // a for effort!
+	    },
+    randColor : function(mode){
+		  //generates a new color string depending on what you gave it
+		  switch(mode){
+		    case 1: // mono, one of 16 values
+		      break;
+		    case 2; //hues, tame
+		      break;
+		    default: //free for all
+		},
     parseToHexColor : function(input){
 			var convertedForLength = (function(input){
 			  // translate shorthand to a full hex number
@@ -76,9 +112,6 @@
 		      },
 
     log : function(message){
-	    var hex_color = cf.parseToHexColor(message);
-	    $("#game-view").css("background","#"+hex_color);
-	    message = hex_color;
 	    $("#logbox").stop();
 	    var log_item = "<li>"+message+"</li>";
 	    $("#logbox").append(log_item);
