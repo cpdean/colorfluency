@@ -29,6 +29,13 @@
     GAME_MODE_COLOR_COLOR : function(){
 			      $(document).ready(function(){
 				$("#color-color").show();
+				$("#color-color td").toggle(
+				    function(){
+				      $(this).css("background","blue");
+				    },
+				    function(){
+				      $(this).css("background","red");
+				    });
 			      });
 			    },
     GAME_MODE_SIMPLE_MONO : function(){
