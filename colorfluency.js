@@ -45,17 +45,33 @@
 				  randomizeColors();
 				});
 
+				var tick;
+				var gameloop = function(){
+				  randomizeColors();
+				  //tick = setTimeout(gameloop, 2000);
+				}
+				gameloop();
+
 
 				$("#color-color").show();
-				$("#color-color td").toggle(
-				    function(){
-				      $(this).css("background","blue");
-				    },
-				    function(){
-				      $(this).css("background","red");
-				    });
+				window.goal = $(".goal_move")[0];
+				goal.counter = 0;
+				$("#color-color td").click(function(){
+				  var target_color = $(this).css("background-color");
+				  $(".player-pill").css("background-color", target_color);
+				  clearTimeout(tick);
+				  gameloop();
+				  goal.counter++;
+				  if(goal.counter > 3){
+				    goal.counter = 0;
+				    var newcolor = cf.randColor(1);
+				    console.log(newcolor)
+				    $(goal).css("background","#"+cf.randColor(1));
+				    $("#level-change").show().fadeOut();
+				  }
+				});
 			      });
-			    },
+			      },
     GAME_MODE_SIMPLE_MONO : function(){
 			      // setup event handlers
 			      $(document).ready(function(){

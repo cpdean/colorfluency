@@ -82,6 +82,16 @@ div#twoface
   background:purple;
 }
 
+#level-change
+{
+  margin:0px auto;
+  width:100px;
+  background: green;
+  color: red;
+  font-size:20px;
+}
+
+
 .player-pill .goal_move
 {
   display: inline-block;
