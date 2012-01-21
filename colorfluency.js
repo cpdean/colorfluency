@@ -26,6 +26,11 @@
 				});
 			      });
 			    },
+    GAME_MODE_COLOR_COLOR : function(){
+			      $(document).ready(function(){
+				$("#color-color").show();
+			      });
+			    },
     GAME_MODE_SIMPLE_MONO : function(){
 			      // setup event handlers
 			      $(document).ready(function(){
@@ -53,13 +58,16 @@
 	      return 1; // a for effort!
 	    },
     randColor : function(mode){
+		  /*
 		  //generates a new color string depending on what you gave it
 		  switch(mode){
 		    case 1: // mono, one of 16 values
 		      break;
-		    case 2; //hues, tame
+		    case 2: //hues, tame
 		      break;
 		    default: //free for all
+		      return;
+		  */
 		},
     parseToHexColor : function(input){
 			var convertedForLength = (function(input){
