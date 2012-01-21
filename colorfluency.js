@@ -27,7 +27,25 @@
 			      });
 			    },
     GAME_MODE_COLOR_COLOR : function(){
+			      var randomizeColors = function(){
+				$("#color-color td").each(function(){
+				  $(this).css("background","#"+cf.randColor());
+				});
+			      }
+
 			      $(document).ready(function(){
+				$(document).keyup(function(e){
+				  if(e.keyCode == 32){
+				    randomizeColors();
+				  }
+				  return false;
+				});
+
+				$(document).click(function(){
+				  randomizeColors();
+				});
+
+
 				$("#color-color").show();
 				$("#color-color td").toggle(
 				    function(){
@@ -65,7 +83,6 @@
 	      return 1; // a for effort!
 	    },
     randColor : function(mode){
-		  /*
 		  //generates a new color string depending on what you gave it
 		  switch(mode){
 		    case 1: // mono, one of 16 values
@@ -73,9 +90,20 @@
 		    case 2: //hues, tame
 		      break;
 		    default: //free for all
-		      return;
-		  */
+		      var c = ""
+			for(var i = 0; i < 6; i++){
+			  c += cf.randHex();
+			}
+		      console.log(c);
+		      return c;
+		  }
 		},
+
+    validHexiDecimals : "0123456789abcdef",
+    randHex : function(){
+		var i = Math.floor(Math.random()*16);
+		return cf.validHexiDecimals[i];
+	      },
     parseToHexColor : function(input){
 			var convertedForLength = (function(input){
 			  // translate shorthand to a full hex number
@@ -104,9 +132,8 @@
 			convertedForLength = convertedForLength.toLowerCase();
 
 			var isValidHex = function(input){
-			  var validHexiDecimals = "0123456789abcdef";
 			  for(var c in input){
-			    var valid = validHexiDecimals.indexOf(input[c]);
+			    var valid = cf.validHexiDecimals.indexOf(input[c]);
 			    if(valid == -1){
 			      return false;
 			    }
