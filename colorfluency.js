@@ -29,7 +29,7 @@
     GAME_MODE_COLOR_COLOR : function(){
 			      var randomizeColors = function(){
 				$("#color-color td").each(function(){
-				  $(this).css("background","#"+cf.randColor());
+				  $(this).css("background","#"+cf.randColor(1));
 				});
 			      }
 
@@ -86,15 +86,25 @@
 		  //generates a new color string depending on what you gave it
 		  switch(mode){
 		    case 1: // mono, one of 16 values
+		      var c = "";
+		      c += cf.randHex();
+		      return cf.convertedForLength(c);
 		      break;
 		    case 2: //hues, tame
+		      break;
+		    case 3: // stick to lowbit colors
+		      var c = ""
+			for(var i = 0; i < 3; i++){
+			  c += cf.randHex();
+			}
+		      c = cf.convertedForLength(c);
+		      return c
 		      break;
 		    default: //free for all
 		      var c = ""
 			for(var i = 0; i < 6; i++){
 			  c += cf.randHex();
 			}
-		      console.log(c);
 		      return c;
 		  }
 		},
@@ -104,8 +114,7 @@
 		var i = Math.floor(Math.random()*16);
 		return cf.validHexiDecimals[i];
 	      },
-    parseToHexColor : function(input){
-			var convertedForLength = (function(input){
+    convertedForLength : function(input){
 			  // translate shorthand to a full hex number
 			  var in_length = input.length;
 			  var out = "";
@@ -127,8 +136,9 @@
 			      out = "888888";  //default to grey
 			  }
 			  return out;
-			})(input);
-
+			},
+    parseToHexColor : function(input){
+			var convertedForLength = cf.convertedForLength(input)
 			convertedForLength = convertedForLength.toLowerCase();
 
 			var isValidHex = function(input){
