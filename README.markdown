@@ -8,11 +8,11 @@ color, but how do you describe colors?
 Here's the problem: you don't.  At least not in a very 
 objective way.
 
-"Those socks are white."
-"That curry is green."
-"I like beer."
-"I've got a red tie."
-"We wore matching blue shirts."
+* "Those socks are white."
+* "That curry is green."
+* "I like beer."
+* "I've got a red tie."
+* "We wore matching blue shirts."
 
 You use color to describe color.  It's pretty unhelpful without
 any other frame of reference.  How do you pinpoint, precisely,
@@ -50,7 +50,7 @@ more applicable to some skills used by designers in their work.
 Game Modes
 ----------
 
-The Plan:
+**The Plan:**
 
 There will be a lot of interplay between the objective, computery ways to 
 get to colors and back again.  RGB values, hex, whatever.  Both to the numeral
