@@ -40,7 +40,7 @@ Method of Action hasn't come out yet, but they have the stated goal of making
 content and games to help people become better designers.  That's pretty
 cool.
 
-They already came out with a [color][http://color.method.ac/] game when I was
+They already came out with a [color](http://color.method.ac/) game when I was
 in the middle of coding this up, but I still feel like color fluency will be
 more applicable to some skills used by designers in their work.
 
