@@ -27,7 +27,8 @@
     </div>
 
     <div id="color-color">
-      <div id="playerField"/>
+      <div id="playerField">
+      </div>
 
       <div class="player-pill">
 	  Try to match
@@ -57,7 +58,7 @@
       $("#color-color #playerField").html(makeGrid(5,1));
     </script>
     <script>
-      cf.start(cf.GAME_MODE_COLOR_COLOR);
+      cf.GAME_MODE_COLOR_COLOR(1);
       //cf.start(cf.GAME_MODE_INPUT_DEBUG);
     </script>
   </body>
