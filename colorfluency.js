@@ -27,11 +27,11 @@
 			      });
 			    },
     /* COLOR:COLOR - You're presented a color, and you have to find the closest color */
-    GAME_MODE_COLOR_COLOR : function(){
+    GAME_MODE_COLOR_COLOR : function(color_depth){
                               var SPACE_BAR = 32
 			      var randomizeColors = function(){
 				$("#color-color td").each(function(){
-				  $(this).css("background","#"+cf.randColor(1));
+				  $(this).css("background","#"+cf.randColor(color_depth));
 				});
 			      }
 
