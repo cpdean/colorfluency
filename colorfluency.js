@@ -69,7 +69,6 @@
 				    var newcolor = cf.randColor(1);
 				    console.log(newcolor)
 				    $(goal).css("background","#"+cf.randColor(1));
-				    $("#level-change").show().fadeOut();
 				  }
 				});
 			      });
