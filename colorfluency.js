@@ -28,6 +28,7 @@
 			    },
     /* COLOR:COLOR - You're presented a color, and you have to find the closest color */
     GAME_MODE_COLOR_COLOR : function(){
+                              var SPACE_BAR = 32
 			      var randomizeColors = function(){
 				$("#color-color td").each(function(){
 				  $(this).css("background","#"+cf.randColor(1));
@@ -36,7 +37,7 @@
 
 			      $(document).ready(function(){
 				$(document).keyup(function(e){
-				  if(e.keyCode == 32){
+				  if(e.keyCode == SPACE_BAR){
 				    randomizeColors();
 				  }
 				  return false;
