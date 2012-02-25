@@ -27,68 +27,7 @@
     </div>
 
     <div id="color-color">
-      <table>
-	<tr>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	</tr>
-	<tr>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	</tr>
-	<tr>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	</tr>
-	<tr>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	</tr>
-	<tr>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	  <td>
-	  </td>
-	</tr>
-      </table>
+      <div id="playerField"/>
 
       <div class="player-pill">
 	  Try to match
@@ -101,6 +40,22 @@
       </div>
     </div>
 
+    <script>
+      function makeGrid(x,y){
+        y = y || x;
+        var html = "";
+        for(var j = 0; j < y; j++){
+          var row = ""
+          for(var i = 0; i < x; i++){
+            row += "<td/>";
+          }
+          row =  "<tr>"+row+"</tr>";
+          html += row;
+        }
+        return "<table>"+html+"</table>";
+      }
+      $("#color-color #playerField").html(makeGrid(5,1));
+    </script>
     <script>
       cf.start(cf.GAME_MODE_COLOR_COLOR);
       //cf.start(cf.GAME_MODE_INPUT_DEBUG);
