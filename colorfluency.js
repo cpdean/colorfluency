@@ -26,6 +26,7 @@
 				});
 			      });
 			    },
+    /* COLOR:COLOR - You're presented a color, and you have to find the closest color */
     GAME_MODE_COLOR_COLOR : function(){
 			      var randomizeColors = function(){
 				$("#color-color td").each(function(){
