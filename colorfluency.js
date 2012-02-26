@@ -59,6 +59,10 @@
 				$("#color-color").show();
 
 				window.goal = $(".goal_move")[0];
+                                var score = $("#score");
+                                var micro_score = $("#micro_score");
+                                score.html("0");
+                                micro_score.html("0");
                                 $(goal).css("background","#"+cf.randColor(color_depth));
 				goal.counter = 0;
 				$("#color-color td").click(function(){
@@ -86,10 +90,20 @@
                                     left:targetCoords.left},
                                     function(){
                                       player.css("background-color", target_color);
+                                      var originalSize = micro_score.css("font-size");
+                                      micro_score.html("100")
+                                      .show()
+                                      .animate({"font-size":"+=20px"},
+                                        { queue:false,
+                                          complete: function(){
+                                                      $(this).css("font-size",originalSize);
+                                                    }
+                                        })
+                                      .fadeOut();
+                                                  
                                       $(this).remove();
                                       $(window).resize();
                                   });
-				  clearTimeout(tick);
 				  gameloop();
 				  goal.counter++;
 				  if(goal.counter > 3){
