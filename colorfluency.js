@@ -44,7 +44,7 @@
 				});
 
 				$(document).click(function(){
-				  randomizeColors();
+				  //randomizeColors();
 				});
 
 				var tick;
