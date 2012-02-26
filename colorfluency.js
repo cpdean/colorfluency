@@ -43,6 +43,7 @@
 				  return false;
 				});
 
+
 				$(document).click(function(){
 				  //randomizeColors();
 				});
@@ -56,7 +57,9 @@
 
 
 				$("#color-color").show();
+
 				window.goal = $(".goal_move")[0];
+                                $(goal).css("background","#"+cf.randColor(color_depth));
 				goal.counter = 0;
 				$("#color-color td").click(function(){
 				  var target_color = $(this).css("background-color");
@@ -89,8 +92,7 @@
 				  if(goal.counter > 3){
 				    goal.counter = 0;
 				    var newcolor = cf.randColor(1);
-				    console.log(newcolor)
-				    $(goal).css("background","#"+cf.randColor(1));
+				    $(goal).css("background","#"+cf.randColor(color_depth));
 				  }
 				});
 			      });
