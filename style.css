@@ -76,6 +76,10 @@ div#twoface
   background: none;
 }
 
+.feedback
+{
+  margin-top:40px;
+}
 .goal_move
 {
   background: blue;
