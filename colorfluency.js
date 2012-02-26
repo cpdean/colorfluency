@@ -81,10 +81,13 @@
                                   // shift the square to find its center
                                   targetCoords.top = targetCoords.top - (squareDup.height() / 2);
                                   targetCoords.left = targetCoords.left - (squareDup.width() / 2);
-                                  squareDup.animate({top:targetCoords.top,left:targetCoords.left},function(){
-                                    player.css("background-color", target_color);
-                                    $(this).remove();
-                                    $(window).resize();
+                                  squareDup.animate({
+                                    top:targetCoords.top,
+                                    left:targetCoords.left},
+                                    function(){
+                                      player.css("background-color", target_color);
+                                      $(this).remove();
+                                      $(window).resize();
                                   });
 				  clearTimeout(tick);
 				  gameloop();
