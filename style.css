@@ -63,13 +63,18 @@ div#twoface
   border-collapse: collapse;
 }
 
-#color-color table td
+table.color-grid td
 {
   background:red;
   width:100px;
   height:100px;
+  border:7px solid transparent;
+}
+#playerField table.color-grid td
+{
   border:7px solid #113;
 }
+
 
 #color-color div.player-pill
 {

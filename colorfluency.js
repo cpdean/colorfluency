@@ -30,7 +30,7 @@
     GAME_MODE_COLOR_COLOR : function(color_depth){
                               var SPACE_BAR = 32
 			      var randomizeColors = function(){
-				$("#color-color td").each(function(){
+				$("#playerField td").each(function(){
 				  $(this).css("background","#"+cf.randColor(color_depth));
 				});
 			      }
@@ -60,7 +60,29 @@
 				goal.counter = 0;
 				$("#color-color td").click(function(){
 				  var target_color = $(this).css("background-color");
-				  $(".player-pill").css("background-color", target_color);
+                                  var squareDup = $("<div  style=\"position: absolute;\">");
+                                  squareDup.css("background-color",target_color)
+                                           .width($(this).width())
+                                           .height($(this).height());
+                                  
+                                  $("#color-color").append(squareDup);
+                                  var source_coords = $(this).offset();
+                                  squareDup.offset({ top: source_coords.top+7,
+                                                     left: source_coords.left+7});
+                                  // tweens
+                                  var player = $(".player-pill");
+                                  var targetCoords = player.offset();
+                                  // target the middle of the pill
+                                  targetCoords.top = targetCoords.top + (player.height() / 2);
+                                  targetCoords.left = targetCoords.left + (player.width() / 2);
+                                  // shift the square to find its center
+                                  targetCoords.top = targetCoords.top - (squareDup.height() / 2);
+                                  targetCoords.left = targetCoords.left - (squareDup.width() / 2);
+                                  squareDup.animate({top:targetCoords.top,left:targetCoords.left},function(){
+                                    player.css("background-color", target_color);
+                                    $(this).remove();
+                                    $(window).resize();
+                                  });
 				  clearTimeout(tick);
 				  gameloop();
 				  goal.counter++;
