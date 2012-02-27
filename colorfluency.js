@@ -61,8 +61,25 @@
 				window.goal = $(".goal_move")[0];
                                 var score = $("#score");
                                 var micro_score = $("#micro_score");
+                                micro_score.origSize = micro_score.css('font-size');
                                 score.html("0");
                                 micro_score.html("0");
+
+                                var addScore = function(points){
+                                      var originalSize = micro_score.origSize;
+                                      var current_score = parseInt(score.html());
+                                      score.html(current_score + points);
+                                      micro_score.html(points)
+                                      .show()
+                                      .animate({"font-size":"+=20px"},
+                                        { queue:false,
+                                          complete: function(){
+                                                      $(this).css("font-size",originalSize);
+                                                    }
+                                        })
+                                      .fadeOut();
+                                }
+
                                 $(goal).css("background","#"+cf.randColor(color_depth));
 				goal.counter = 0;
 				$("#color-color td").click(function(){
@@ -85,21 +102,12 @@
                                   // shift the square to find its center
                                   targetCoords.top = targetCoords.top - (squareDup.height() / 2);
                                   targetCoords.left = targetCoords.left - (squareDup.width() / 2);
-                                  squareDup.animate({
-                                    top:targetCoords.top,
-                                    left:targetCoords.left},
+                                  squareDup.animate(
+                                    { top:targetCoords.top,
+                                      left:targetCoords.left},
                                     function(){
                                       player.css("background-color", target_color);
-                                      var originalSize = micro_score.css("font-size");
-                                      micro_score.html("100")
-                                      .show()
-                                      .animate({"font-size":"+=20px"},
-                                        { queue:false,
-                                          complete: function(){
-                                                      $(this).css("font-size",originalSize);
-                                                    }
-                                        })
-                                      .fadeOut();
+                                      addScore(99);
                                                   
                                       $(this).remove();
                                       $(window).resize();
